@@ -1,0 +1,22 @@
+* {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-family: 'Roboto', sans-serif; 
+  box-sizing: border-box;
+  background-color: white;
+  height: 100vh;
+  background-size: cover;
+}
+
+
+.app-main-container {
+  display: flex;
+  height: 100vh;
+}
+
+.inside-container {
+  width: 80%;
+  background-color: red;
+}

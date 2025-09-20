@@ -9,7 +9,13 @@ POST http://localhost:3000/contacts
 Content-Type: application/json
 
 {
-  "name": "Naveen Kumar",
-  "email": "naveen.kumar@example.com",
-  "phone": "9876543210"
+  "name": "Ajay",
+  "email": "ajay@example.com",
+  "phone": "0987654433"
 }
+
+####
+
+DELETE http://localhost:3000/contacts/25
+Content-Type: application/json
+

@@ -3,7 +3,6 @@ const app = experss()
 const cors = require('cors')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
-const { v4: uuid } = require('uuid')
 app.use(experss.json())
 app.use(cors({
     origin: '*',
@@ -44,7 +43,7 @@ app.post('/contacts', async (req, res) => {
         const newId = lastData ? lastData.id + 1 : 1
         const newData = new Data({ id: newId, name, email, phone })
         await newData.save()
-        res.status(200)
+        res.status(200).json({message: "Contact Added"})
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
@@ -53,7 +52,7 @@ app.post('/contacts', async (req, res) => {
 app.delete('/contacts/:id', async (req, res) => {
     try {
         const id = Number(req.params.id)
-        if (isNaN(id)) return res.status(400).json({ message: 'Invalid car ID' });
+        if (isNaN(id)) return res.status(400).json({ message: 'Invalid contact ID' });
         const deletedContact = await Data.findOneAndDelete({ id: id });
 
         if (!deletedContact) return res.status(404).json({ message: 'Contact not found ' });
